@@ -1,0 +1,130 @@
+﻿<Window x:Class="ASSRT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASSRT"
+        mc:Ignorable="d"
+        Icon="/Images/Logo/icon-small.png"
+        Title="ASSRT" Height="522" Width="600"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Fonts.xaml" />
+                <ResourceDictionary Source="Styles/Buttons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <StackPanel>
+        <!-- Title -->
+        <StackPanel Height="130">
+            <Image Source="/Images/TitleBackground.png" />
+            <TextBlock Margin="0, -50, 10, 0" 
+                       Foreground="#ffffff" 
+                       HorizontalAlignment="Right" 
+                       FontFamily="{StaticResource Open Sans Light}"
+                       FontSize="15">
+                By Aron Belsö
+            </TextBlock>
+            <TextBlock Margin="0, -30, 10, 0" 
+                       HorizontalAlignment="Right" 
+                       FontFamily="{StaticResource Open Sans Semibold}"
+                       TextDecorations="Underline">
+                <Hyperlink NavigateUri="http://github.com/abelso"
+                           Foreground="#ffffff"
+                           RequestNavigate="Hyperlink_RequestNavigate">
+                    http://github.com/abelso
+                </Hyperlink>
+            </TextBlock>
+        </StackPanel>
+        
+        <!-- Controls -->
+        <StackPanel Margin="10, 5, 10, 20">
+            
+            <!-- Folder Chooser -->
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="AssFolderTextBox"
+                         Height="30" 
+                         Width="455"
+                         FontSize="20" 
+                         BorderThickness="1.5"
+                         BorderBrush="#00aeef"
+                         Margin="1, 0, 10, 0"
+                         Foreground="#00aeef"
+                         IsReadOnly="True"
+                         Cursor="Arrow">
+                </TextBox>
+                <Button x:Name="AssFolderBtn"
+                        Click="AssFolderBtn_Click"
+                        Content="Open" 
+                        Padding="30 5"/>
+            </StackPanel>
+            
+            <CheckBox x:Name="FilesDeleteCheckBox" 
+                      Foreground="#00aeef"
+                      BorderBrush="#00aeef"
+                      Cursor="Hand"
+                      FontFamily="{StaticResource Open Sans}">
+                <CheckBox.LayoutTransform>
+                    <ScaleTransform ScaleX="1.3" ScaleY="1.3" />
+                </CheckBox.LayoutTransform>
+                Delete .ass files after conversion
+            </CheckBox>
+            
+            <Button x:Name="ConvertAssFiles"
+                    Click="ConvertAssFiles_Click"
+                    Content="Convert" 
+                    Grid.Column="1"
+                    Margin="180, 20, 180, 0"/>
+
+        </StackPanel>
+        
+        <!-- Filelist -->
+        <Border BorderBrush="#00aeef"
+                BorderThickness="0, 1, 0, 0">
+            <StackPanel Background="#cae8ff">
+                <TextBlock Foreground="#00aeef"
+                           Margin="0, 10, 0, 0"
+                           HorizontalAlignment="Center"
+                           FontSize="15"
+                           FontFamily="{StaticResource Open Sans Semibold}">
+                        Filelist
+                </TextBlock>
+                <ListView x:Name="SubtitleList"
+                          Margin="10, 10, 10, 10"
+                          Height="120"
+                          BorderThickness="1"
+                          BorderBrush="#00aeef">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="BorderThickness" Value="0, 0, 0, 0.5" />
+                            <Setter Property="BorderBrush" Value="#bbbbbb" />
+                            <Setter Property="Focusable" Value="false"/>
+                            <Setter Property="Foreground" Value="#006cff" />
+                            <Setter Property="FontSize" Value="13" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=Name}" Foreground="{Binding Color}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <!-- Status Bar -->
+                <Border BorderThickness="0, 1, 0, 0"
+                        BorderBrush="#00aeef">
+                    <StackPanel Background="#e6f4ff">
+                        <Label x:Name="StatusBar"
+                               Foreground="#444444"
+                               Margin="5, 0, 0, 0"
+                               FontFamily="{StaticResource Open Sans}">Ready</Label>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Window>

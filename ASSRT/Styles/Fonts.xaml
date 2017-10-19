@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ASSRT">
+
+    <FontFamily x:Key="Open Sans">pack://application;,,,/Fonts/#Open Sans</FontFamily>
+    <FontFamily x:Key="Open Sans Light">pack://application;,,,/Fonts/#Open Sans Light</FontFamily>
+    <FontFamily x:Key="Open Sans Semibold">pack://application;,,,/Fonts/#Open Sans Semibold</FontFamily>
+    <FontFamily x:Key="Open Sans Bold">pack://application;,,,/Fonts/#Open Sans Bold</FontFamily>
+
+</ResourceDictionary>
+    
+ 
