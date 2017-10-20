@@ -18,4 +18,4 @@ Tested and working on Windows 10.
 
 Here you can download the executable.
 
-[Download](https://drive.google.com/open?id=0B3emnJZsiGm3U3Z5RkhMaE5EQ0U)
+[Download](https://drive.google.com/open?id=0B3emnJZsiGm3VEh1R01UNVJrb1k)
